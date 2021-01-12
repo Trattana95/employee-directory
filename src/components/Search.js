@@ -1,16 +1,14 @@
 import React from "react"
 
-function Search(placeholder, handleChange) {
+function Search(props) {
 
     return (
-        <div>
-            <input
-                className='search'
-                type='search'
-                placeholder={placeholder}
-                onChange={handleChange}
-            />
-        </div>
+        <input
+        className="searchbar"
+        type="text"
+        placeholder="search here"
+        value={props.search}
+        onChange={props.searchChange}/>
     )
 }
 

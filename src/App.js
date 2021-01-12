@@ -1,17 +1,14 @@
-import React from "react";
-// import './App.css';
-import Card from "./components/Card";
-import Jumbotron from "./components/Jumbotron";
-import Search from "./components/Search"
-
+import React from 'react';
+import './App.css';
+import Jumbotron from './components/Jumbotron';
+import Container from './components/Container';
 
 
 function App() {
   return (
-    <div className="container">
-      <Jumbotron />
-      <Search />
-      <Card />
+    <div>
+      <Jumbotron/>
+      <Container/>
     </div>
   );
 }

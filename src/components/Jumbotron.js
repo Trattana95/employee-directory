@@ -7,6 +7,7 @@ function Jumbotron() {
     <div className="jumbotron mb-0 px-3 py-5 rounded-0">
       <div className="jumbotron-info border rounded p-2">
         <h1 className="display-4">Employee Directory</h1>
+        <p className="lead text-center">Search for employees</p>
       </div>
     </div>
   );
