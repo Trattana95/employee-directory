@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table(params) {
+function Table(props) {
   return (
     <table className="employeeInfo">
         <thead>
@@ -13,7 +13,7 @@ function Table(params) {
             </tr>
         </thead>
         <tbody>
-            {params.children}
+            {props.children}
         </tbody>
     </table>
   );

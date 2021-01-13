@@ -2,27 +2,31 @@ import React from "react";
 import Api from "../utils/API";
 import Table from "./Table";
 import Searchbar from "./Search";
+import "../styles/Container.css";
+
 
 class Container extends React.Component {
   state = {
     employees: [],
     search: "",
-    filteredEmployees: [],
+    employessList: [],
   };
   componentDidMount() {
     Api.search()
       .then((data) => {
-        let employeeData = data.data.results.map((dataRow) => {
+        let employeeData = data.data.results.map((data) => {
           return {
-            id: dataRow.login.uuid,
-            image: dataRow.picture.thumbnail,
-            name: dataRow.name.first + " " + dataRow.name.last,
-       
+            id: data.login,
+            image: data.picture.thumbnail,
+            name: data.name.first + data.name.last,
+            phone: data.phone,
+            email: data.email,
+            dob: data.dob.date.substring(0,10),
           };
         });
         this.setState({
           employees: employeeData,
-          filteredEmployees: employeeData,
+          employessList: employeeData,
         });
         console.log(this.state.employees);
       })
@@ -31,28 +35,30 @@ class Container extends React.Component {
       });
   }
   searchChange = (event) => {
-  
+    
   };
 
   render() {
     return (
       <div className="container">
         <div className="wrapper">
+        <p className="lead text-center"><strong> Search for employees </strong> </p>
+
           <Searchbar
             search={this.state.search}
             searchChange={this.searchChange}
           />
           <p>{this.state.search}</p>
           <Table>
-              {this.state.filteredEmployees.map((emp) => (
-                <tr className="userData" key={emp.id}>
+              {this.state.employessList.map((employee) => (
+                <tr className="userData" key={employee.id}>
                   <td>
-                    <img src={emp.image} alt="" />
+                    <img src={employee.image} alt="" />
                   </td>
-                  <td>{emp.name}</td>
-                  <td>{emp.phone}</td>
-                  <td>{emp.email}</td>
-                  <td>{emp.dob}</td>
+                  <td>{employee.name}</td>
+                  <td>{employee.phone}</td>
+                  <td>{employee.email}</td>
+                  <td>{employee.dob}</td>
                 </tr>
               ))}
           </Table>
