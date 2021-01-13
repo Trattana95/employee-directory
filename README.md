@@ -6,6 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project is a react app that allows the user to view an employee directory. In the directory the user can repopulate the directory by searching for specific person based on their name.
 
+## Contributing
+I relied heavily on chapter 19-React. I used a lot of referencing from all the activities to get my project to work.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
