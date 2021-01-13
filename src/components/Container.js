@@ -18,10 +18,9 @@ class Container extends React.Component {
           return {
             id: data.login,
             image: data.picture.thumbnail,
-            name: data.name.first + data.name.last,
+            name: data.name.first + " " + data.name.last,
             phone: data.phone,
             email: data.email,
-            dob: data.dob.date.substring(0,10),
           };
         });
         this.setState({
@@ -34,9 +33,22 @@ class Container extends React.Component {
         console.log("Error", err);
       });
   }
-  searchChange = (event) => {
-    
+    handleInputChange = (event) => {
+    const value = event.target.value;
+    this.setState({
+      search: value
+    })
+    this.employessData(value);
+  
   };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchEmployee(this.state.search);
+    this.employeeData();
+  };
+
+
 
   render() {
     return (
@@ -58,7 +70,6 @@ class Container extends React.Component {
                   <td>{employee.name}</td>
                   <td>{employee.phone}</td>
                   <td>{employee.email}</td>
-                  <td>{employee.dob}</td>
                 </tr>
               ))}
           </Table>

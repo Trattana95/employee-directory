@@ -6,7 +6,7 @@ function Jumbotron() {
   return (
     <div className="jumbotron mb-0 px-3 py-5 rounded-0">
       <div className="jumbotron-info border rounded p-2">
-        <h1 className="display-4">Employee Directory</h1>
+        <h1 className="display-5">Employee Directory</h1>
       </div>
     </div>
   );
